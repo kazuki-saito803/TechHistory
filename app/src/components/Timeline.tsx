@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { timelineData } from "../data/timelineData";
+import { timelineData } from "../data/TimelineData.ts";
 import "../css/Timeline.css";
 
 const categoryColors: { [key: string]: string } = {
