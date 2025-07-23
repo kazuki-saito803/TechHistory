@@ -4,11 +4,17 @@ import { Modal } from "../components/ModalWindow.tsx";
 import type { TimelineItem } from "../types";
 import "../css/Timeline.css";
 
-const categoryColors: { [key: string]: string } = {
+/* const categoryColors: { [key: string]: string } = {
     "本業": "#4caf50",
     "副業": "#f44336",
     "自己学習": "#2196f3",
-};
+}; */
+
+const classMap: { [key: string]: string } = {
+    "本業": "main",
+    "副業": "side",
+    "自己学習": "learning",
+  };
 
 const fullStartYear = 2023;
 const fullEndYear = 2025;
@@ -56,7 +62,7 @@ const Timeline: React.FC = () => {
     });
 
     return (
-        <div style={{ overflowX: "auto", fontFamily: "sans-serif" }}>
+        <div className="timeline-container">
         {/* フィルターUI */}
         <div className="stickyHeader">
             <label>
@@ -99,29 +105,20 @@ const Timeline: React.FC = () => {
                     <th
                         key={year}
                         colSpan={12}
-                        style={{
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        backgroundColor: "#eee",
-                        border: "1px solid #ccc",
-                        }}
+                        className="year-header"
                     >
                         {year}
                     </th>
+                  
                     ))}
                 </tr>
                 <tr>
                     {visibleMonths.map((m, i) => (
                         <th
                             key={i}
-                            style={{
-                            minWidth: 30,
-                            fontSize: 10,
-                            textAlign: "center",
-                            border: "1px solid #ccc",
-                            }}
+                            className="month-label"
                         >
-                        {m.label.slice(5)}
+                            {m.label.slice(5)}
                         </th>
                     ))}
                 </tr>
@@ -132,20 +129,15 @@ const Timeline: React.FC = () => {
                     <td className="stickyCell">{item.title}</td>
                     {visibleMonths.map(({ label }, i) => {
                         const isActive = label >= item.start && label <= item.end;
-                        const bgColor = categoryColors[item.category] || "#ccc";
+                        // const bgColor = categoryColors[item.category] || "#ccc";
 
                         return (
-                        <td
-                            key={i}
-                            style={{
-                            backgroundColor: isActive ? bgColor : "transparent",
-                            border: "1px solid #eee",
-                            cursor: isActive ? "pointer" : "default",
-                            height: 20,
-                            }}
-                            title={isActive ? `${item.title} (${item.category})` : ""}
-                            onClick={isActive ? () => handleClick(item) : undefined}
-                        />
+                            <td
+                                key={i}
+                                className={`timeline-cell ${isActive ? `active-cell ${classMap[item.category]}` : ""}`}
+                                title={isActive ? `${item.title} (${item.category})` : ""}
+                                onClick={isActive ? () => handleClick(item) : undefined}
+                            />                          
                         );
                     })}
                     </tr>
