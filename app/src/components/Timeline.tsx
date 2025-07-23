@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { timelineData } from "../data/TimelineData.ts";
+import { Modal } from "../components/ModalWindow.tsx";
+import type { TimelineItem } from "../types";
 import "../css/Timeline.css";
 
 const categoryColors: { [key: string]: string } = {
@@ -12,20 +14,22 @@ const fullStartYear = 2023;
 const fullEndYear = 2025;
 
 const generateMonthLabels = (start: number, end: number) => {
-  const labels: { year: number; month: number; label: string }[] = [];
-  for (let y = start; y <= end; y++) {
-    for (let m = 1; m <= 12; m++) {
-        labels.push({
-            year: y,
-            month: m,
-            label: `${y}-${String(m).padStart(2, "0")}`,
-        });
+    const labels: { year: number; month: number; label: string }[] = [];
+    for (let y = start; y <= end; y++) {
+        for (let m = 1; m <= 12; m++) {
+            labels.push({
+                year: y,
+                month: m,
+                label: `${y}-${String(m).padStart(2, "0")}`,
+            });
+        }
     }
-  }
-  return labels;
+    return labels;
 };
 
 const Timeline: React.FC = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState<TimelineItem | null>(null);
     const categories = Array.from(new Set(timelineData.map((item) => item.category)));
 
     const [selectedCategory, setSelectedCategory] = useState("全て");
@@ -34,6 +38,11 @@ const Timeline: React.FC = () => {
 
     const visibleYears = Array.from({ length: endYear - startYear + 1 }, (_, i) => startYear + i);
     const visibleMonths = generateMonthLabels(startYear, endYear);
+
+    const handleClick = (project: TimelineItem) => {
+        setSelectedProject(project);
+        setModalOpen(true);
+    };
 
 
     const filteredData = timelineData.filter((item) => {
@@ -44,9 +53,9 @@ const Timeline: React.FC = () => {
         const inRange = itemEnd >= startYear && itemStart <= endYear;
 
         return matchCategory && inRange;
-  });
+    });
 
-  return (
+    return (
         <div style={{ overflowX: "auto", fontFamily: "sans-serif" }}>
         {/* フィルターUI */}
         <div className="stickyHeader">
@@ -135,11 +144,7 @@ const Timeline: React.FC = () => {
                             height: 20,
                             }}
                             title={isActive ? `${item.title} (${item.category})` : ""}
-                            onClick={() => {
-                            if (isActive) {
-                                alert(`プロジェクト: ${item.title}\nカテゴリ: ${item.category}\n期間: ${item.start}〜${item.end}\nスキル: ${item.skill}\nその他: ${item.other}`);
-                            }
-                            }}
+                            onClick={isActive ? () => handleClick(item) : undefined}
                         />
                         );
                     })}
@@ -147,6 +152,13 @@ const Timeline: React.FC = () => {
                 ))}
             </tbody>
         </table>
+        {modalOpen && selectedProject && (
+        <Modal
+            isOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            project={selectedProject}
+        />
+        )}
     </div>
   );
 };

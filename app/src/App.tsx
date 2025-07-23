@@ -4,7 +4,7 @@ import Timeline from "./components/Timeline.tsx";
 const App: React.FC = () => {
   return (
     <div style={{ padding: "20px" }}>
-      <h1>技術タイムライン</h1>
+      <h1>技術年表</h1>
       <Timeline />
     </div>
   );
