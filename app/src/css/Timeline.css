@@ -1,23 +1,66 @@
-/* src/components/Timeline.module.css */
-
+/* 既存クラスのまま */
 .stickyHeader {
-    position: sticky;
-    left: 0;
-    background-color: white;
-    z-index: 2;
-    border-right: 1px solid #ccc;
-    min-width: 200px;
-    text-align: left;
-  }
-  
-  .stickyCell {
-    position: sticky;
-    left: 0;
-    background-color: white;
-    z-index: 1;
-    white-space: nowrap;
-    border-right: 1px solid #ccc;
-    padding: 6px;
-    font-weight: bold;
-  }
-  
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+  border-right: 1px solid #ccc;
+  min-width: 200px;
+  text-align: left;
+}
+
+.stickyCell {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+  white-space: nowrap;
+  border-right: 1px solid #ccc;
+  padding: 6px;
+  font-weight: bold;
+}
+
+/* 新規追加分 */
+.timeline-container {
+  overflow-x: auto;
+  font-family: sans-serif;
+}
+
+.year-header {
+  text-align: center;
+  font-weight: bold;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+.month-label {
+  min-width: 30px;
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.timeline-cell {
+  border: 1px solid #eee;
+  height: 20px;
+  background-color: transparent;
+  cursor: default;
+}
+
+/* 活性セルの基本スタイル */
+.timeline-cell.active-cell {
+  cursor: pointer;
+}
+
+/* カテゴリ色分け */
+.timeline-cell.active-cell.main {
+  background-color: #4caf50; /* 本業 */
+}
+
+.timeline-cell.active-cell.side {
+  background-color: #f44336; /* 副業 */
+}
+
+.timeline-cell.active-cell.learning {
+  background-color: #2196f3; /* 自己学習 */
+}
