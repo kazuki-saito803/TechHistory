@@ -1,5 +1,4 @@
-/* 既存クラスのまま */
-.stickyHeader {
+.sticky-header {
   position: sticky;
   left: 0;
   background-color: white;
@@ -9,7 +8,7 @@
   text-align: left;
 }
 
-.stickyCell {
+.sticky-cell {
   position: sticky;
   left: 0;
   background-color: white;
@@ -20,10 +19,14 @@
   font-weight: bold;
 }
 
-/* 新規追加分 */
 .timeline-container {
   overflow-x: auto;
   font-family: sans-serif;
+}
+
+.timeline-container table {
+  border-collapse: "collapse";
+  width: "100%";
 }
 
 .year-header {
@@ -47,12 +50,10 @@
   cursor: default;
 }
 
-/* 活性セルの基本スタイル */
 .timeline-cell.active-cell {
   cursor: pointer;
 }
 
-/* カテゴリ色分け */
 .timeline-cell.active-cell.main {
   background-color: #4caf50; /* 本業 */
 }

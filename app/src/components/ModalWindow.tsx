@@ -1,4 +1,3 @@
-// src/components/ModalWindow.tsx
 import React from "react";
 import "../css/ModalWindow.css";
 import type { TimelineItem } from "../types";

@@ -4,12 +4,6 @@ import { Modal } from "../components/ModalWindow.tsx";
 import type { TimelineItem } from "../types";
 import "../css/Timeline.css";
 
-/* const categoryColors: { [key: string]: string } = {
-    "本業": "#4caf50",
-    "副業": "#f44336",
-    "自己学習": "#2196f3",
-}; */
-
 const classMap: { [key: string]: string } = {
     "本業": "main",
     "副業": "side",
@@ -64,7 +58,7 @@ const Timeline: React.FC = () => {
     return (
         <div className="timeline-container">
         {/* フィルターUI */}
-        <div className="stickyHeader">
+        <div className="sticky-header">
             <label>
             カテゴリ:{" "}
             <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
@@ -94,11 +88,11 @@ const Timeline: React.FC = () => {
             </label>
         </div>
 
-      {/* 年表 */}
-        <table style={{ borderCollapse: "collapse", width: "100%" }}>
+        {/* 年表 */}
+        <table style={{  }}>
             <thead>
                 <tr>
-                    <th rowSpan={2} className="stickyHeader">
+                    <th rowSpan={2} className="sticky-header">
                         プロジェクト/学習内容
                     </th>
                     {visibleYears.map((year) => (
@@ -126,11 +120,9 @@ const Timeline: React.FC = () => {
             <tbody>
                 {filteredData.map((item, index) => (
                     <tr key={index}>
-                    <td className="stickyCell">{item.title}</td>
+                    <td className="sticky-cell">{item.title}</td>
                     {visibleMonths.map(({ label }, i) => {
                         const isActive = label >= item.start && label <= item.end;
-                        // const bgColor = categoryColors[item.category] || "#ccc";
-
                         return (
                             <td
                                 key={i}

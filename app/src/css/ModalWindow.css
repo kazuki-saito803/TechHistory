@@ -1,41 +1,40 @@
-/* src/css/Modal.css */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4); /* ← 背景を非活性に */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); /* ← 背景を非活性に */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
   
-  .modal-window {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
-    max-height: 80%;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    white-space: pre-line; /* \nで改行できるようにする */
-  }
+.modal-window {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  white-space: pre-line; /* \nで改行できるようにする */
+}
   
-  .modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
   
-  .modal-content {
-    margin-top: 1rem;
-  }
+.modal-content {
+  margin-top: 1rem;
+}
   
