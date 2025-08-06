@@ -34,28 +34,12 @@ export const timelineData: TimelineItem[] = [
         techStack: ["Java"]
     },
     {
-        title: "Eigo Mate",
-        category: "自己学習",
-        start: "2025-05",
-        end: "2025-06",
-        description: "Azure Function + Line Webhooks + Gemini APIを利用したLine UIからの英語チャットボットを作成。自己学習目的のためサービスとしてのリリースは未実施。", 
-        techStack: ["Azure", "Azure Functions", "App Service", "Python", "Gemini API", "Line Webhooks"]
-    },
-    {
         title: "Agent Discussion",
         category: "自己学習",
         start: "2025-06",
         end: "2025-07",
         description: "LoRA Fine-turningを実施したAgentとpromptベースでペルソナを与えたAgentで議論の内容に関する違いを評価。", 
         techStack: ["Hugging Face", "Local LLM", "LoRA", "Python", "Pytorch", "Docker", "Kubernetes"]
-    },
-    {
-        title: "RAGツールキット",
-        category: "自己学習",
-        start: "2025-07",
-        end: "2025-08",
-        description: "", 
-        techStack: ["RAG", "Python","Fugging Face"]
     },
     {
         title: "Microsoft認定資格",
@@ -98,7 +82,7 @@ export const timelineData: TimelineItem[] = [
         techStack: ["Azure", "AWS", "GCP", "Python", "Flask", "RAG", "GenAI"]
     },
     {
-        title: "Tech Hub普及展開支援案件",
+        title: "生成AIプラットフォーム普及展開支援案件",
         category: "本業",
         start: "2024-12",
         end: "2025-09",
