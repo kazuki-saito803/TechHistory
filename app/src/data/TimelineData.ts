@@ -39,7 +39,23 @@ export const timelineData: TimelineItem[] = [
         start: "2025-06",
         end: "2025-07",
         description: "LoRAでファインチューニングしたLLM Agentと、Prompt Engineeringによってペルソナ付与したAgentとの対話内容を比較・評価。", 
-        techStack: ["Hugging Face", "Local LLM", "LoRA", "Python", "Pytorch", "Docker", "Kubernetes"]
+        techStack: ["Hugging Face", "Local LLM", "LoRA", "Python", "Pytorch", "Docker"]
+    },
+    {
+        title: "AICoder",
+        category: "自己学習",
+        start: "2025-07",
+        end: "2025-08",
+        description: "gpt-oss:20bを利用したFunction CallingとLang Chain, Lang Graphを利用したAgentアプリ作成。プロンプトを投げることでローカルにPythonなどのプログラムファイルを作成する。", 
+        techStack: ["Local LLM", "LoRA", "Python", "Pytorch", "Lang Chain", "Lang Graph"]
+    },
+    {
+        title: "lacalrag_toolkit",
+        category: "自己学習",
+        start: "2025-08",
+        end: "2025-09",
+        description: "Index登録した情報とプロンプトのベクトル検索により類似度を計算し、最終的な回答をLLMが出力するRAG型Chatbotアプリをローカル環境かつAPIとして提供するためのアプリ。", 
+        techStack: ["Local LLM", "RAG", "Python", "Pytorch", "Docker", "Hugging Face","elastic search"]
     },
     {
         title: "理学療法士",
